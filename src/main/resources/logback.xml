@@ -7,8 +7,16 @@
         </encoder>
     </appender>
 
+    <!-- 控制台 appender 配置 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
     <!-- root logger 配置 -->
     <root level="info">
         <appender-ref ref="FILE" />
+        <appender-ref ref="STDOUT" />
     </root>
 </configuration>
