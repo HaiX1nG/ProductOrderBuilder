@@ -1,7 +1,7 @@
 <configuration>
     <!-- 普通文本文件 appender 配置 -->
     <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-        <file>application.log</file>
+        <file>orderData.log</file>
         <encoder>
             <pattern>%msg%n</pattern>
         </encoder>

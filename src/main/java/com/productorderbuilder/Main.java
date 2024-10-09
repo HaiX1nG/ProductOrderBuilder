@@ -41,8 +41,8 @@ public class Main {
                 json.set("order_info", orderInfoArrayNode); // 将 orderInfoArrayNode 设置为 order_info 的值
 //                System.out.println(json.toString());
                 logger.info(json.toString());
-                System.out.println("此次数据生成耗时: " + randomTime.Sleep() + " ms");
-                Thread.sleep(randomTime.Sleep());
+                System.out.println("此次数据生成耗时: " + randomTime.sleep() + " ms");
+                Thread.sleep(randomTime.sleep());
             }
         } catch (Exception e) {
             e.printStackTrace();

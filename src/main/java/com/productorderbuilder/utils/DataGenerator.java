@@ -10,7 +10,7 @@ import java.util.*;
 public class DataGenerator {
     private final SnowflakeIdWorker snowflakeIdWorker = new SnowflakeIdWorker();
     private final Random random = new Random();
-    public String UsernameCreate() {
+    public String usernameCreate() {
         List<String> names = new ArrayList<>();
         String[] firstNames = {
                 "Alice", "Bob", "Charlie", "David", "Eva",
@@ -30,7 +30,7 @@ public class DataGenerator {
         return names.get(randomIndex);
     }
 
-    public String CreateTime() {
+    public String createTime() {
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String formatterDate = now.format(formatter);
@@ -41,26 +41,26 @@ public class DataGenerator {
     // 用于生成订单id
     private static int start = 0;
 
-    public String OrderId() {
+    public String orderId() {
         long timestamp = System.currentTimeMillis();
         start++;
         String orderId = timestamp + "-sdq4kj3wiw-" + start;
         return orderId;
     }
 
-    public int OrderInfoNum() {
+    public int orderInfoNum() {
         Random random = new Random();
         return random.nextInt((13 - 1) + 1) + 1;
     }
 
-    public int Num() {
+    public int num() {
         Random random = new Random();
         return random.nextInt((15 - 1) + 1) + 1;
     }
 
     public List<Goods> orderInfo() {
-        int num = Num();
-        int orderCount = OrderInfoNum();
+        int num = num();
+        int orderCount = orderInfoNum();
         Set<Goods> ordersSet = new HashSet<>();
         Goods[] goodsArray = {
                 new Goods("1001", "可口可乐", num, "饮料", 3.00),
@@ -82,17 +82,17 @@ public class DataGenerator {
             int index = random.nextInt(goodsArray.length);
             Goods selectedGoods = goodsArray[index];
             // 确保每次生成的 Goods 对象都有唯一的属性值
-            Goods goods = new Goods(selectedGoods.getGoods_id(), selectedGoods.getGoods_name(), Num(), selectedGoods.getType(), selectedGoods.getGoods_price());
+            Goods goods = new Goods(selectedGoods.getGoods_id(), selectedGoods.getGoods_name(), num, selectedGoods.getType(), selectedGoods.getGoods_price());
             ordersSet.add(goods);
         }
         return new ArrayList<>(ordersSet);
     }
 
     public Order OrderData(List<Goods> goodsInfo) {
-        long userId = snowflakeIdWorker.SnowflakeID(1, 1);
-        String username = UsernameCreate();
-        String createTime = CreateTime();
-        String orderId = OrderId();
+        String userId = snowflakeIdWorker.snowflakeID(1, 1);
+        String username = usernameCreate();
+        String createTime = createTime();
+        String orderId = orderId();
         Order order = new Order(userId, username, createTime, orderId, goodsInfo);
         return order;
 

@@ -114,7 +114,7 @@ public class TestArray {
     }
 
     public Order OrderData(List<Goods> goodsInfo) {
-        long userId = snowflakeIdWorker.SnowflakeID(1, 1);
+        String userId = snowflakeIdWorker.snowflakeID(1, 1);
         String username = UsernameCreate();
         String createTime = CreateTime();
         String orderId = OrderId();
@@ -144,7 +144,7 @@ public class TestArray {
                 arrayNode.add(objectMapper.valueToTree(order.getOrder_info()));
                 json.set("order_info", arrayNode);
                 System.out.println(json.toString());
-                Thread.sleep(randomTime.Sleep());
+                Thread.sleep(randomTime.sleep());
             }
         } catch (Exception e) {
             e.printStackTrace();

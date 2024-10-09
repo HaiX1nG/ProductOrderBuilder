@@ -3,24 +3,16 @@ package com.productorderbuilder.bean;
 import java.util.List;
 
 public class Order {
-    private long user_id;
+    private String user_id;
     private String username;
     private String create_time;
     private String order_id;
     private List<Goods> order_info;
 
-    public Order(long user_id, String username, String create_time, String order_id, List<Goods> order_info) {
-        this.user_id = user_id;
-        this.username = username;
-        this.create_time = create_time;
-        this.order_id = order_id;
-        this.order_info = order_info;
-    }
-
     @Override
     public String toString() {
         return "Order{" +
-                "user_id=" + user_id +
+                "user_id='" + user_id + '\'' +
                 ", username='" + username + '\'' +
                 ", create_time='" + create_time + '\'' +
                 ", order_id='" + order_id + '\'' +
@@ -28,11 +20,19 @@ public class Order {
                 '}';
     }
 
-    public long getUser_id() {
+    public Order(String user_id, String username, String create_time, String order_id, List<Goods> order_info) {
+        this.user_id = user_id;
+        this.username = username;
+        this.create_time = create_time;
+        this.order_id = order_id;
+        this.order_info = order_info;
+    }
+
+    public String getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(long user_id) {
+    public void setUser_id(String user_id) {
         this.user_id = user_id;
     }
 
