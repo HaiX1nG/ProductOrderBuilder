@@ -3,24 +3,13 @@ package com.productorderbuilder.bean;
 import java.util.List;
 
 public class Order {
-    private String user_id;
+    private Integer user_id;
     private String username;
     private String create_time;
-    private String order_id;
-    private List<Goods> order_info;
+    private long order_id;
+    private List<GoodsTable> order_info;
 
-    @Override
-    public String toString() {
-        return "Order{" +
-                "user_id='" + user_id + '\'' +
-                ", username='" + username + '\'' +
-                ", create_time='" + create_time + '\'' +
-                ", order_id='" + order_id + '\'' +
-                ", order_info=" + order_info +
-                '}';
-    }
-
-    public Order(String user_id, String username, String create_time, String order_id, List<Goods> order_info) {
+    public Order(Integer user_id, String username, String create_time, long order_id, List<GoodsTable> order_info) {
         this.user_id = user_id;
         this.username = username;
         this.create_time = create_time;
@@ -28,11 +17,11 @@ public class Order {
         this.order_info = order_info;
     }
 
-    public String getUser_id() {
+    public Integer getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(String user_id) {
+    public void setUser_id(Integer user_id) {
         this.user_id = user_id;
     }
 
@@ -52,19 +41,30 @@ public class Order {
         this.create_time = create_time;
     }
 
-    public String getOrder_id() {
+    public long getOrder_id() {
         return order_id;
     }
 
-    public void setOrder_id(String order_id) {
+    public void setOrder_id(long order_id) {
         this.order_id = order_id;
     }
 
-    public List<Goods> getOrder_info() {
+    public List<GoodsTable> getOrder_info() {
         return order_info;
     }
 
-    public void setOrder_info(List<Goods> order_info) {
+    public void setOrder_info(List<GoodsTable> order_info) {
         this.order_info = order_info;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "user_id=" + user_id +
+                ", username='" + username + '\'' +
+                ", create_time='" + create_time + '\'' +
+                ", order_id=" + order_id +
+                ", order_info=" + order_info +
+                '}';
     }
 }

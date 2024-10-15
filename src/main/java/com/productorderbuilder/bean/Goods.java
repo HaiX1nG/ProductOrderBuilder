@@ -3,17 +3,25 @@ package com.productorderbuilder.bean;
 import java.util.Objects;
 
 public class Goods {
-    private String goods_id;
+    private Integer goods_id;
     private String goods_name;
     private int num;
     private String type;
     private double goods_price;
 
-    public String getGoods_id() {
+    public Goods(Integer goods_id, String goods_name, int num, String type, double goods_price) {
+        this.goods_id = goods_id;
+        this.goods_name = goods_name;
+        this.num = num;
+        this.type = type;
+        this.goods_price = goods_price;
+    }
+
+    public Integer getGoods_id() {
         return goods_id;
     }
 
-    public void setGoods_id(String goods_id) {
+    public void setGoods_id(Integer goods_id) {
         this.goods_id = goods_id;
     }
 
@@ -46,14 +54,6 @@ public class Goods {
     }
 
     public void setGoods_price(double goods_price) {
-        this.goods_price = goods_price;
-    }
-
-    public Goods(String goods_id, String goods_name, int num, String type, double goods_price) {
-        this.goods_id = goods_id;
-        this.goods_name = goods_name;
-        this.num = num;
-        this.type = type;
         this.goods_price = goods_price;
     }
 
